@@ -1,10 +1,11 @@
 <!doctype html>
 <html lang="es">
   <head>
+    {% load static %}
     <meta charset="utf-8">
+    <link rel="shortcut icon" href="{% static 'core/favicon.ico' %}" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <link href="favicon.ico" rel="icon" type="image/x-icon" />
     <title>cupckake JeReM</title>
   </head>
   <body>
@@ -24,31 +25,31 @@
           <a href="#" class="bg-dark text-danger py-3 px-5">Contácto</a>
         </div>
       </div><!-- end contenido principal -->
+
+
       <!-- contenedor con las tarjetas -->
       <div class="row py-5">
-        <div class="col-md-4">
-          <h4>Lorem, ipsum dolor.</h4>
-          <hr>
-          <img src="cupcake1.jpeg" alt="cupcake1" class="img-fluid rounded-3">
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est aut a mollitia placeat minus exercitationem laborum quos porro sapiente labore.</p>
-        </div>
-        <div class="col-md-4">
-          <h4>Lorem, ipsum dolor.</h4>
-          <hr>
-          <img src="cupcake2.png" alt="cupcake1" class="img-fluid rounded-3">
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est aut a mollitia placeat minus exercitationem laborum quos porro sapiente labore.</p>
-        </div>
-        <div class="col-md-4">
-          <h4>Lorem, ipsum dolor.</h4>
-          <hr>
-          <img src="cupcake3.jpg" alt="cupcake1" class="img-fluid rounded-3">
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est aut a mollitia placeat minus exercitationem laborum quos porro sapiente labore.</p>
-        </div>
-      </div><!-- contenedor con las tarjetas -->
+        
+        {% for postre in postres %}
+          <div class="col-md-4">
+            <h4>{{postre.title}}</h4>
+            <hr>
+            <img src="{{ postre.image.url }}" alt="cupcake1" class="img-fluid rounded-3">
+            <p>{{ postre.description }}</p>
+          </div>
+        {% endfor %}
+
+      </div>
+      <!-- contenedor con las tarjetas -->
+
+
+      <!-- footer -->
       <footer class="bg-dark text-center">
         <a href="#" class="text-white ">Todos los derechos reservados.</a>
         <address class="float-right text-white">Los patos 3080</address>
       </footer>
+      <!-- end footer -->
+
     </div>
     <!-- end contenedor general -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
